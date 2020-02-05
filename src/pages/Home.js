@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
+import Searchbar from '../components/Searchbar';
 
 const Container = styled.div`
 	padding: 3rem 9rem;
@@ -48,6 +49,7 @@ function Home() {
 
 	return (
 		<Layout>
+			<Searchbar />
 			<Container>
 				{photos.map(item => {
 					return (
