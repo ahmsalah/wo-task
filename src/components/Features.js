@@ -77,7 +77,7 @@ const WeddingPlanning = styled.h3`
 	color: #000000;
 	text-transform: uppercase;
 	font-weight: 900;
-	padding: 7rem 7rem 0;
+	padding: 4rem 7rem 0;
 	margin: 0 auto;
 
 	@media ${theme.breakpoints.laptop} {

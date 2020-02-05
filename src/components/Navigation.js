@@ -24,8 +24,8 @@ const Background = styled.div`
 	transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 	height: 5rem;
 	width: 5rem;
-	top: 3.5rem;
-	right: 3.0rem;
+	top: -3.5rem;
+	right: -3.0rem;
 	transform: ${props => (props.open ? 'scale(80)' : 'none')};
 `;
 

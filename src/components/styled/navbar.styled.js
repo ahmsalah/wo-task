@@ -19,7 +19,8 @@ export const Root = styled.div`
 	padding-top: ${props => (props.scrolled ? 0 : '3rem')};
 	z-index: 9998;
 	@media ${theme.breakpoints.tablet} {
-		padding: 0;
+		background-color: #fff;
+		padding: 1rem 0 .5rem;
 	}
 
 	.container {
@@ -107,7 +108,7 @@ export const MenuButton = styled.div`
 	position: relative;
 	order: 3;
 	padding: 2rem;
-	margin-right: 1.2rem;
+	margin-right: 2.2rem;
 	display: none;
 	@media ${theme.breakpoints.tablet} {
 		display: block;
