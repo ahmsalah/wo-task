@@ -1,7 +1,7 @@
 const URL = 'https://wo-task-server.herokuapp.com/';
 
-const fetchImages = async resource => {
-	const response = await fetch(`${URL}${resource}`);
+const fetchImages = async (resource, query) => {
+	const response = await fetch(`${URL}${resource}${query ? '?q=' + query : ''}`);
 
 	const data = await response.json();
 

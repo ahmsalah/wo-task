@@ -1,8 +1,10 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import useInputState from '../hooks/useInputState';
 import styled from 'styled-components';
 import Button from './styled/Button';
 import theme from './styled/theme';
+import { useDispatch } from 'react-redux';
+import { searchSlice } from '../features/searchSlice';
 
 const Container = styled.div`
 	display: flex;
@@ -53,8 +55,30 @@ const Container = styled.div`
 	}
 `;
 
-function Searchbar() {
+function Searchbar({ resource, loadImages }) {
 	const [ value, handleChange, reset ] = useInputState('');
+	const dispatch = useDispatch();
+	const { setValue, resetValue } = searchSlice.actions;
+
+	const handleSubmit = () => {
+		dispatch(setValue(value));
+		dispatch(loadImages());
+	};
+
+	const handleClear = () => {
+		reset();
+		dispatch(resetValue());
+		dispatch(loadImages());
+	};
+
+	useEffect(
+		() => {
+			// clear searchbar when route changes
+			dispatch(resetValue());
+			reset();
+		},
+		[ resource, dispatch, reset, resetValue ]
+	);
 
 	return (
 		<Container>
@@ -66,8 +90,8 @@ function Searchbar() {
 				value={value}
 			/>
 			<div className="btns-container">
-				<Button>Apply</Button>
-				<Button secondary onClick={() => reset()}>
+				<Button onClick={handleSubmit}>Apply</Button>
+				<Button secondary onClick={handleClear}>
 					Clear
 				</Button>
 			</div>

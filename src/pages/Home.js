@@ -39,7 +39,7 @@ function Home() {
 
 	return (
 		<Layout>
-			<Searchbar />
+			<Searchbar resource="photos" loadImages={loadPhotos} />
 			<Container>
 				{photos.map(item => {
 					return (

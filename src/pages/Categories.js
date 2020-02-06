@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Searchbar from '../components/Searchbar';
 import Grid from '../components/styled/Grid';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCategories } from '../features/categoriesSlice';
+import { loadCategories, searchCategories } from '../features/categoriesSlice';
 
 const Container = styled(Grid)`
 	div {
@@ -39,7 +39,7 @@ function Categories() {
 
 	return (
 		<Layout>
-			<Searchbar />
+			<Searchbar resource="categories" searchAction={searchCategories} />
 			<Container>
 				{categories.map(item => {
 					return (
