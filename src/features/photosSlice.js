@@ -10,3 +10,14 @@ export const photosSlice = createSlice({
 		setPhotos: (state, action) => [ ...action.payload ]
 	}
 });
+
+export const photosPaginationSlice = createSlice({
+	name: 'photosPagination',
+	initialState: { count: 0, page: 1 },
+	reducers: {
+		setCount: (state, action) => ({ ...state, count: action.payload }),
+		setPage: (state, action) => ({ ...state, page: action.payload }),
+		nextPage: (state, action) => ({ ...state, page: state.page + 1 }),
+		prevPage: (state, action) => ({ ...state, page: state.page - 1 })
+	}
+});

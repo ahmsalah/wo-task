@@ -75,9 +75,8 @@ function Searchbar({ resource, loadImages }) {
 		() => {
 			// clear searchbar when route changes
 			dispatch(resetValue());
-			reset();
 		},
-		[ resource, dispatch, reset, resetValue ]
+		[ resource, dispatch, resetValue ]
 	);
 
 	return (

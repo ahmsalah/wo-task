@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import Searchbar from '../components/Searchbar';
 import Grid from '../components/styled/Grid';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPhotos } from '../features/photosSlice';
+import { loadPhotos, searchPhotos, photosPaginationSlice } from '../features/photosSlice';
+import Pagination from '../components/Pagination';
 
 const Container = styled(Grid)`
 	div {
@@ -28,6 +29,7 @@ const Container = styled(Grid)`
 
 function Home() {
 	const photos = useSelector(state => state.photos);
+	const photosPagination = useSelector(state => state.photosPagination);
 	const dispatch = useDispatch();
 
 	useEffect(
@@ -39,7 +41,7 @@ function Home() {
 
 	return (
 		<Layout>
-			<Searchbar resource="photos" loadImages={loadPhotos} />
+			<Searchbar resource="photos" loadImages={searchPhotos} />
 			<Container>
 				{photos.map(item => {
 					return (
@@ -53,6 +55,11 @@ function Home() {
 					);
 				})}
 			</Container>
+			<Pagination
+				loadImages={loadPhotos}
+				actions={photosPaginationSlice.actions}
+				{...photosPagination}
+			/>
 		</Layout>
 	);
 }

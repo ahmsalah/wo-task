@@ -4,7 +4,12 @@ import styled from 'styled-components';
 import Searchbar from '../components/Searchbar';
 import Grid from '../components/styled/Grid';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadCategories, searchCategories } from '../features/categoriesSlice';
+import {
+	loadCategories,
+	searchCategories,
+	categoriesPaginationSlice
+} from '../features/categoriesSlice';
+import Pagination from '../components/Pagination';
 
 const Container = styled(Grid)`
 	div {
@@ -28,6 +33,7 @@ const Container = styled(Grid)`
 
 function Categories() {
 	const categories = useSelector(state => state.categories);
+	const categoriesPagination = useSelector(state => state.categoriesPagination);
 	const dispatch = useDispatch();
 
 	useEffect(
@@ -39,7 +45,7 @@ function Categories() {
 
 	return (
 		<Layout>
-			<Searchbar resource="categories" searchAction={searchCategories} />
+			<Searchbar resource="categories" loadImages={searchCategories} />
 			<Container>
 				{categories.map(item => {
 					return (
@@ -53,6 +59,11 @@ function Categories() {
 					);
 				})}
 			</Container>
+			<Pagination
+				loadImages={loadCategories}
+				actions={categoriesPaginationSlice.actions}
+				{...categoriesPagination}
+			/>
 		</Layout>
 	);
 }
