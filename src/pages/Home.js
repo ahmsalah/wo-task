@@ -3,6 +3,8 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 import Searchbar from '../components/Searchbar';
 import Grid from '../components/styled/Grid';
+import { useSelector, useDispatch } from 'react-redux';
+import photosSlice from '../features/photosSlice';
 
 const Container = styled(Grid)`
 	div {
@@ -25,17 +27,22 @@ const Container = styled(Grid)`
 `;
 
 function Home() {
-	const [ photos, setPhotos ] = React.useState([]);
-	React.useEffect(() => {
-		const fetchPhotos = async () => {
-			const res = await fetch('https://wo-task-server.herokuapp.com/photos');
-			const data = await res.json();
+	const photos = useSelector(state => state.photos);
+	const dispatch = useDispatch();
 
-			setPhotos(data);
-		};
+	React.useEffect(
+		() => {
+			const fetchPhotos = async () => {
+				const res = await fetch('https://wo-task-server.herokuapp.com/photos');
+				const data = await res.json();
 
-		fetchPhotos();
-	}, []);
+				dispatch(photosSlice.actions.setPhotos(data));
+			};
+
+			fetchPhotos();
+		},
+		[ dispatch ]
+	);
 
 	return (
 		<Layout>

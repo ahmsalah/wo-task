@@ -3,13 +3,17 @@ import theme from './components/styled/theme';
 import GlobalStyle from './components/styled/global';
 import Routes from './Routes';
 import { ThemeProvider } from 'styled-components';
+import store from './store';
+import { Provider } from 'react-redux';
 
 function App() {
 	return (
-		<ThemeProvider theme={theme}>
-			<GlobalStyle />
-			<Routes />
-		</ThemeProvider>
+		<Provider store={store}>
+			<ThemeProvider theme={theme}>
+				<GlobalStyle />
+				<Routes />
+			</ThemeProvider>
+		</Provider>
 	);
 }
 
