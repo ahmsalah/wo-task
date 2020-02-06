@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
-const categoriesSlice = createSlice({
+export const loadCategories = createAction('categories/loadCategories');
+
+export const categoriesSlice = createSlice({
 	name: 'categories',
 	initialState: [],
 	reducers: {
-		setCategories: (state, action) => [ ...state, ...action.payload ]
+		setCategories: (state, action) => [ ...action.payload ]
 	}
 });
-export default categoriesSlice;

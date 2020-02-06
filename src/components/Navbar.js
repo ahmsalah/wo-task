@@ -33,7 +33,7 @@ const data = {
 		{ title: 'PHOTOGRAPHERS', link: '' }
 	],
 	Vendors: [ { title: 'CREATE YOUR PROFILE', link: '' } ],
-	Gallery: [ { title: 'WEDDING IDEAS', link: '' }, { title: 'MORE', link: '' } ],
+	Gallery: [ { title: 'WEDDING IDEAS', link: '' }, { title: 'MORE', link: '/categories' } ],
 	'Ideas & More': [ { title: 'MORE', link: '' } ]
 };
 
