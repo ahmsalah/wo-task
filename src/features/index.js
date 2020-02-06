@@ -1,5 +1,5 @@
-import photosSlice from '../features/photosSlice';
-import categoriesSlice from '../features/categoriesSlice';
+import { photosSlice } from '../features/photosSlice';
+import { categoriesSlice } from '../features/categoriesSlice';
 
 const rootReducer = {
 	photos: photosSlice.reducer,

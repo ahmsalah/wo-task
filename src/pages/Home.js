@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
 import Searchbar from '../components/Searchbar';
 import Grid from '../components/styled/Grid';
 import { useSelector, useDispatch } from 'react-redux';
-import photosSlice from '../features/photosSlice';
+import { loadPhotos } from '../features/photosSlice';
 
 const Container = styled(Grid)`
 	div {
@@ -30,16 +30,9 @@ function Home() {
 	const photos = useSelector(state => state.photos);
 	const dispatch = useDispatch();
 
-	React.useEffect(
+	useEffect(
 		() => {
-			const fetchPhotos = async () => {
-				const res = await fetch('https://wo-task-server.herokuapp.com/photos');
-				const data = await res.json();
-
-				dispatch(photosSlice.actions.setPhotos(data));
-			};
-
-			fetchPhotos();
+			dispatch(loadPhotos());
 		},
 		[ dispatch ]
 	);

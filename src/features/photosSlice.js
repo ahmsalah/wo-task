@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAction } from '@reduxjs/toolkit';
 
-const photosSlice = createSlice({
+export const loadPhotos = createAction('photos/loadPhotos');
+
+export const photosSlice = createSlice({
 	name: 'photos',
 	initialState: [],
 	reducers: {
 		setPhotos: (state, action) => [ ...state, ...action.payload ]
 	}
 });
-export default photosSlice;
