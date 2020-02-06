@@ -8,7 +8,6 @@ const Root = styled.div`
 	position: relative;
 	display: inline-block;
 	color: black;
-	background-color: #fff;
 	font-weight: 900;
 	text-transform: uppercase;
 

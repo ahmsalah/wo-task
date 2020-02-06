@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 const Item = styled.div`
@@ -60,4 +60,4 @@ function FeatureItem({ title, description, linkTitle, link, imgSrc }) {
 	);
 }
 
-export default FeatureItem;
+export default memo(FeatureItem);

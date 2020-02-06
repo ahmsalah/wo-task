@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const Grid = styled.div`
 	padding: 3rem 9rem;
+	max-width: 1000px;
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 	grid-gap: 3rem;
