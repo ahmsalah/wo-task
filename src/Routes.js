@@ -11,11 +11,11 @@ function Routes() {
 				<Route exact path="/">
 					<Home />
 				</Route>
-				<Route path="/:slug">
-					<PhotoItem />
-				</Route>
 				<Route exact path="/categories">
 					<Categories />
+				</Route>
+				<Route path="/:slug">
+					<PhotoItem />
 				</Route>
 			</Switch>
 		</Router>

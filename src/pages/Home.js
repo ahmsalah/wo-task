@@ -16,9 +16,8 @@ const Container = styled(Grid)`
 		align-items: center;
 	}
 
-	a {
-		color: inherit;
-    text-decoration: none;
+	a, a:hover {
+		color: inherit;		
 	}
 
 	h3 {

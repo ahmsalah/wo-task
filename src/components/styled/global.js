@@ -12,6 +12,14 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1.4;
 		color: ${props => props.theme.palette.text.secondary};
 	}
+	a {
+		color: #337ab7;
+    text-decoration: none;
+	}
+	a:hover, a:active {
+		color: #23527c;
+    text-decoration: none;
+	}
 `;
 
 export default GlobalStyle;
