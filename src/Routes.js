@@ -14,6 +14,9 @@ function Routes() {
 				<Route exact path="/categories">
 					<Categories />
 				</Route>
+				<Route path="/category=:slug">
+					<Home />
+				</Route>
 				<Route path="/:slug">
 					<PhotoItem />
 				</Route>

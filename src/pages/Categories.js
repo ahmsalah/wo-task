@@ -10,6 +10,7 @@ import {
 	categoriesPaginationSlice
 } from '../features/categoriesSlice';
 import Pagination from '../components/Pagination';
+import { Link } from 'react-router-dom';
 
 const Container = styled(Grid)`
 	div {
@@ -18,7 +19,9 @@ const Container = styled(Grid)`
 		justify-content: center;
 		align-items: center;
 	}
-
+	a, a:hover {
+		color: inherit;		
+	}
 	h3 {
 		font-size: 1.7rem;
 		font-weight: bold;
@@ -50,11 +53,13 @@ function Categories() {
 				{categories.map(item => {
 					return (
 						<div key={item.id}>
-							<img
-								src={`https://i.picsum.photos/id/${item.id + 500}/250/250.jpg`}
-								alt={item.title}
-							/>
-							<h3>{item.title}</h3>
+							<Link to={`/category=${item.id}`}>
+								<img
+									src={`https://i.picsum.photos/id/${item.id + 500}/250/250.jpg`}
+									alt={item.title}
+								/>
+								<h3>{item.title}</h3>
+							</Link>
 						</div>
 					);
 				})}

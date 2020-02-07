@@ -1,11 +1,12 @@
 const URL = 'https://wo-task-server.herokuapp.com/';
 
-const fetchImages = async (resource, pageNum, query) => {
+const fetchImages = async (resource, pageNum, query, categoryId) => {
 	const searchQuery = query ? `&q=${query}` : '';
 	const page = `&_page=${pageNum}`;
 	const limit = `_limit=${9}`;
+	const category = categoryId ? `&category=${categoryId}` : '';
 
-	const response = await fetch(`${URL}${resource}?${limit}${page}${searchQuery}`);
+	const response = await fetch(`${URL}${resource}?${limit}${page}${category}${searchQuery}`);
 
 	const images = await response.json();
 	const count = response.headers.get('x-total-count');

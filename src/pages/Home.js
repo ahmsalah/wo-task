@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadPhotos, searchPhotos, photosPaginationSlice } from '../features/photosSlice';
 import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+import { categoryIdSlice } from '../features/categoriesSlice';
 
 const Container = styled(Grid)`
 	div {
@@ -36,12 +38,16 @@ function Home() {
 	const photos = useSelector(state => state.photos);
 	const photosPagination = useSelector(state => state.photosPagination);
 	const dispatch = useDispatch();
+	const { slug } = useParams();
+	const location = useLocation();
 
 	useEffect(
 		() => {
+			const categoryId = location.pathname === '/' ? '' : slug;
+			dispatch(categoryIdSlice.actions.setCategoryId(categoryId));
 			dispatch(loadPhotos());
 		},
-		[ dispatch ]
+		[ dispatch, location, slug ]
 	);
 
 	return (

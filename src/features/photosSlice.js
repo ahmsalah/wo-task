@@ -2,6 +2,7 @@ import { createSlice, createAction } from '@reduxjs/toolkit';
 
 export const loadPhotos = createAction('photos/loadPhotos');
 export const searchPhotos = createAction('photos/searchPhotos');
+export const loadPhotosFromCategory = createAction('photos/loadPhotosFromCategory');
 
 export const photosSlice = createSlice({
 	name: 'photos',

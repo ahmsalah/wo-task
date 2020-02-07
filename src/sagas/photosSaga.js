@@ -5,6 +5,7 @@ import { photosSlice, photosPaginationSlice, photoItemSlice } from '../features/
 const getQuery = state => state.search;
 const getPage = state => state.photosPagination.page;
 const getPhotoItemId = state => state.photoItem.selectedPhotoId;
+const getCategoryId = state => state.categoryId;
 
 function* handlePhotoItemLoad(resource) {
 	try {
@@ -21,12 +22,13 @@ function* handlePhotoItemLoad(resource) {
 function* handlePhotosLoad(resource) {
 	try {
 		// get what the user typed in the searchbar
+		const categoryId = yield select(getCategoryId);
 		const query = yield select(getQuery);
 
 		// get the current page number
 		const pageNum = yield select(getPage);
 
-		const { images, count } = yield call(fetchImages, resource, pageNum, query);
+		const { images, count } = yield call(fetchImages, resource, pageNum, query, categoryId);
 
 		yield put(photosPaginationSlice.actions.setCount(count));
 		yield put(photosSlice.actions.setPhotos(images));
@@ -39,12 +41,14 @@ function* handlePhotosLoad(resource) {
 
 function* handleSearchPhotos(resource) {
 	try {
+		const categoryId = yield select(getCategoryId);
+
 		const query = yield select(getQuery);
 		// when user search for something, reset to page 1
 		yield put(photosPaginationSlice.actions.setPage(1));
 
 		const pageNum = yield select(getPage);
-		const { images, count } = yield call(fetchImages, resource, pageNum, query);
+		const { images, count } = yield call(fetchImages, resource, pageNum, query, categoryId);
 
 		yield put(photosPaginationSlice.actions.setCount(count));
 		yield put(photosSlice.actions.setPhotos(images));

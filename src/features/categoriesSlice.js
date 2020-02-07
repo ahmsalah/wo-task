@@ -21,3 +21,11 @@ export const categoriesPaginationSlice = createSlice({
 		prevPage: (state, action) => ({ ...state, page: state.page - 1 })
 	}
 });
+
+export const categoryIdSlice = createSlice({
+	name: 'categoryId',
+	initialState: '',
+	reducers: {
+		setCategoryId: (state, action) => action.payload
+	}
+});
