@@ -1,9 +1,22 @@
 import { call, put, takeEvery, select } from 'redux-saga/effects';
-import { fetchImages } from '../utils/FetchImages';
-import { photosSlice, photosPaginationSlice } from '../features/photosSlice';
+import { fetchImages, fetchImageItem } from '../utils/FetchImages';
+import { photosSlice, photosPaginationSlice, photoItemSlice } from '../features/photosSlice';
 
 const getQuery = state => state.search;
 const getPage = state => state.photosPagination.page;
+const getPhotoItemId = state => state.photoItem.selectedPhotoId;
+
+function* handlePhotoItemLoad(resource) {
+	try {
+		const photoId = yield select(getPhotoItemId);
+
+		const image = yield call(fetchImageItem, resource, photoId);
+
+		yield put(photoItemSlice.actions.setPhotoItem(image));
+	} catch (err) {
+		console.log(err.toString());
+	}
+}
 
 function* handlePhotosLoad(resource) {
 	try {
@@ -43,4 +56,5 @@ function* handleSearchPhotos(resource) {
 export default function* watchPhotos() {
 	yield takeEvery('photos/loadPhotos', handlePhotosLoad, 'photos');
 	yield takeEvery('photos/searchPhotos', handleSearchPhotos, 'photos');
+	yield takeEvery('photoItem/setSelectedPhotoId', handlePhotoItemLoad, 'photos');
 }

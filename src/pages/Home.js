@@ -6,6 +6,7 @@ import Grid from '../components/styled/Grid';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadPhotos, searchPhotos, photosPaginationSlice } from '../features/photosSlice';
 import Pagination from '../components/Pagination';
+import { Link } from 'react-router-dom';
 
 const Container = styled(Grid)`
 	div {
@@ -13,6 +14,11 @@ const Container = styled(Grid)`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+
+	a {
+		color: inherit;
+    text-decoration: none;
 	}
 
 	h3 {
@@ -46,11 +52,13 @@ function Home() {
 				{photos.map(item => {
 					return (
 						<div key={item.id}>
-							<img
-								src={`https://i.picsum.photos/id/${item.id + 500}/250/250.jpg`}
-								alt={item.title}
-							/>
-							<h3>{item.title}</h3>
+							<Link to={`/${item.id}`}>
+								<img
+									src={`https://i.picsum.photos/id/${item.id + 500}/250/250.jpg`}
+									alt={item.title}
+								/>
+								<h3>{item.title}</h3>
+							</Link>
 						</div>
 					);
 				})}

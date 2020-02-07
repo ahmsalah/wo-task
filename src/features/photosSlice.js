@@ -21,3 +21,12 @@ export const photosPaginationSlice = createSlice({
 		prevPage: (state, action) => ({ ...state, page: state.page - 1 })
 	}
 });
+
+export const photoItemSlice = createSlice({
+	name: 'photoItem',
+	initialState: { selectedPhotoId: 0, photoItem: '' },
+	reducers: {
+		setPhotoItem: (state, action) => ({ ...state, photoItem: action.payload }),
+		setSelectedPhotoId: (state, action) => ({ ...state, selectedPhotoId: action.payload })
+	}
+});

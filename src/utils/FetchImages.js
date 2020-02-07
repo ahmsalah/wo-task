@@ -9,7 +9,7 @@ const fetchImages = async (resource, pageNum, query) => {
 
 	const images = await response.json();
 	const count = response.headers.get('x-total-count');
-	console.log(count, images);
+
 	if (response.status > 400) {
 		throw new Error(images.errors);
 	}
@@ -17,4 +17,14 @@ const fetchImages = async (resource, pageNum, query) => {
 	return { images, count };
 };
 
-export { fetchImages };
+const fetchImageItem = async (resource, photoId) => {
+	const response = await fetch(`${URL}${resource}/${photoId}`);
+	const image = await response.json();
+
+	if (response.status > 400) {
+		throw new Error(image.errors);
+	}
+	return image;
+};
+
+export { fetchImages, fetchImageItem };
