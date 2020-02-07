@@ -3,7 +3,7 @@ import theme from './components/styled/theme';
 import GlobalStyle from './components/styled/global';
 import Routes from './Routes';
 import { ThemeProvider } from 'styled-components';
-import store from './store';
+import store from './redux/store';
 import { Provider } from 'react-redux';
 
 function App() {

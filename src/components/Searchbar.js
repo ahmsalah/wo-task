@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Button from './styled/Button';
 import theme from './styled/theme';
 import { useDispatch } from 'react-redux';
-import { searchSlice } from '../features/searchSlice';
+import { searchSlice } from '../redux/features/searchSlice';
 
 const Container = styled.div`
 	display: flex;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Layout from '../components/Layout';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { photoItemSlice } from '../features/photosSlice';
+import { photoItemSlice } from '../redux/features/photosSlice';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import theme from '../components/styled/theme';

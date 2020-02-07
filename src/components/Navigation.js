@@ -70,7 +70,7 @@ const Nav = styled.nav`
 `;
 
 const data = [
-	{ title: 'Gallery', link: '' },
+	{ title: 'Gallery', link: '/categories' },
 	{ title: '360 planned', link: '' },
 	{ title: 'For The Wedding', link: '' },
 	{ title: 'Him', link: '' },

@@ -8,7 +8,7 @@ import {
 	loadCategories,
 	searchCategories,
 	categoriesPaginationSlice
-} from '../features/categoriesSlice';
+} from '../redux/features/categoriesSlice';
 import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
 

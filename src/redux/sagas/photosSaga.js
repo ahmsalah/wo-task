@@ -1,5 +1,5 @@
 import { call, put, takeEvery, select } from 'redux-saga/effects';
-import { fetchImages, fetchImageItem } from '../utils/FetchImages';
+import { fetchImages, fetchImageItem } from '../../utils/FetchImages';
 import { photosSlice, photosPaginationSlice, photoItemSlice } from '../features/photosSlice';
 
 const getQuery = state => state.search;

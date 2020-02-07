@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import Searchbar from '../components/Searchbar';
 import Grid from '../components/styled/Grid';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPhotos, searchPhotos, photosPaginationSlice } from '../features/photosSlice';
+import { loadPhotos, searchPhotos, photosPaginationSlice } from '../redux/features/photosSlice';
 import Pagination from '../components/Pagination';
 import { Link } from 'react-router-dom';
 import { useParams, useLocation } from 'react-router-dom';
-import { categoryIdSlice } from '../features/categoriesSlice';
+import { categoryIdSlice } from '../redux/features/categoriesSlice';
 
 const Container = styled(Grid)`
 	div {
