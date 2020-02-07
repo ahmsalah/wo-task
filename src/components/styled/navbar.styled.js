@@ -101,6 +101,10 @@ export const UserControls = styled.div`
 		order: 1;
 		top: unset;
 	}
+	& > * {
+    color: #024d4c;
+			}
+
 `;
 
 export const MenuButton = styled.div`

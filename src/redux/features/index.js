@@ -2,6 +2,7 @@ import { photosSlice, photosPaginationSlice, photoItemSlice } from './photosSlic
 
 import { categoriesSlice, categoriesPaginationSlice, categoryIdSlice } from './categoriesSlice';
 import { searchSlice } from './searchSlice';
+import { languageSlice } from './languageSlice';
 
 const rootReducer = {
 	photos: photosSlice.reducer,
@@ -10,7 +11,8 @@ const rootReducer = {
 	categories: categoriesSlice.reducer,
 	categoriesPagination: categoriesPaginationSlice.reducer,
 	categoryId: categoryIdSlice.reducer,
-	search: searchSlice.reducer
+	search: searchSlice.reducer,
+	language: languageSlice.reducer
 };
 
 export default rootReducer;
